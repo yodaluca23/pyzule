@@ -57,7 +57,7 @@ parser.add_argument("-r", metavar="url", type=str, required=False,
 parser.add_argument("-f", metavar="files", nargs="+", type=str,
                     help="tweak files to inject into the ipa")
 parser.add_argument("-Nfix", action="store_true",
-                    help="do not automatically fix non-essential dependencies)
+                    help="do not automatically fix non-essential dependencies")
 parser.add_argument("-u", action="store_true",
                     help="remove UISupportedDevices")
 parser.add_argument("-w", action="store_true",
