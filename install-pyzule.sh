@@ -4,10 +4,10 @@ ARCH=$(uname -m)
 if [[ $ARCH == *"iPhone"* ]]; then
     OS="iPhone"
     PATHPREFIX="/var/jb"
-    PYZULEURL="https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/pyzule-ios.py"
+    PYZULEURL="https://raw.githubusercontent.com/yodaluca23/pyzule/main/pyzule-ios.py"
 else
     OS=$(uname)
-    PYZULEURL="https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/pyzule.py"
+    PYZULEURL="https://raw.githubusercontent.com/yodaluca23/pyzule/main/pyzule.py"
 fi
 
 PZ_DIR=${HOME}/.config/pyzule
@@ -50,27 +50,27 @@ fi
 
 if [ ! -x "$(command -v ldid)" ]; then
     echo "[*] installing ldid.."
-    sudo curl -so ${PATHPREFIX}/usr/local/bin/ldid https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/deps/ldid_${OS}_$ARCH
+    sudo curl -so ${PATHPREFIX}/usr/local/bin/ldid https://raw.githubusercontent.com/yodaluca23/pyzule/main/deps/ldid_${OS}_$ARCH
     sudo chmod +x ${PATHPREFIX}/usr/local/bin/ldid
 fi
 
 # ldid error doesnt seem to happen on iOS
 if [ ! -x "$(command -v ipsw)" ] && [ "$OS" != "iPhone" ]; then
     echo "[*] installing ipsw.."
-    sudo curl -so ${PATHPREFIX}/usr/local/bin/ipsw https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/deps/ipsw_${OS}_$ARCH
+    sudo curl -so ${PATHPREFIX}/usr/local/bin/ipsw https://raw.githubusercontent.com/yodaluca23/pyzule/main/deps/ipsw_${OS}_$ARCH
     sudo chmod +x ${PATHPREFIX}/usr/local/bin/ipsw
 fi
 
 # install_name_tool and otool should only be installed here on linux
 if [ ! -x "$(command -v otool)" ]; then
     echo "[*] installing otool.."
-    sudo curl -so ${PATHPREFIX}/usr/local/bin/otool https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/deps/otool_$ARCH
+    sudo curl -so ${PATHPREFIX}/usr/local/bin/otool https://raw.githubusercontent.com/yodaluca23/pyzule/main/deps/otool_$ARCH
     sudo chmod +x ${PATHPREFIX}/usr/local/bin/otool
 fi
 
 if [ ! -x "$(command -v install_name_tool)" ]; then
     echo "[*] installing install_name_tool.."
-    sudo curl -so ${PATHPREFIX}/usr/local/bin/install_name_tool https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/deps/install_name_tool_$ARCH
+    sudo curl -so ${PATHPREFIX}/usr/local/bin/install_name_tool https://raw.githubusercontent.com/yodaluca23/pyzule/main/deps/install_name_tool_$ARCH
     sudo chmod +x ${PATHPREFIX}/usr/local/bin/install_name_tool
 fi
 
@@ -78,20 +78,20 @@ fi
 if [ "$OS" == "iPhone" ] && [ ! -x "$(command -v insert_dylib)" ]; then
     # this *might* work? should test on both rootful/rootless
     echo "[*] installing insert_dylib.."
-    sudo curl -so ${PATHPREFIX}/usr/local/bin/insert_dylib https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/deps/insert_dylib
+    sudo curl -so ${PATHPREFIX}/usr/local/bin/insert_dylib https://raw.githubusercontent.com/yodaluca23/pyzule/main/deps/insert_dylib
     sudo chmod +x ${PATHPREFIX}/usr/local/bin/insert_dylib
 fi
 
 # create (or update) hidden dir
 if [ ! -d ${PZ_DIR}/Orion.framework ]; then
     echo "[*] downloading dependencies.."
-    curl -so /tmp/zxcvbn_dir.zip https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/zxcvbn_dir.zip
+    curl -so /tmp/zxcvbn_dir.zip https://raw.githubusercontent.com/yodaluca23/pyzule/main/zxcvbn_dir.zip
     unzip -o /tmp/zxcvbn_dir.zip -d ${PZ_DIR} > /dev/null
     rm /tmp/zxcvbn_dir.zip
 fi
 
 echo "[*] installing pyzule.."
-curl -so ~/.config/pyzule/version.json https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/version.json
+curl -so ~/.config/pyzule/version.json https://raw.githubusercontent.com/yodaluca23/pyzule/main/version.json
 sudo rm ${PATHPREFIX}/usr/local/bin/pyzule &> /dev/null  # yeah this is totally required leave me alone
 sudo curl -so ${PATHPREFIX}/usr/local/bin/pyzule ${PYZULEURL}
 if [ "$OS" == "Linux" ]; then
