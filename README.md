@@ -32,7 +32,7 @@ you can get usage info with `pyzule -h`.
 $ pyzule -h
 usage: pyzule [-h] [-i input] [-o output] [-z .pyzule] [-n name] [-v version] [-b bundle id] [-m minimum]
               [-c [level]] [-k icon] [-x entitlements] [-l plist] [-r url [url ...]] [-f files [files ...]]
-              [-u] [-w] [-d] [-s] [-e] [-g] [-p] [-t] [-q] [--update]
+              [-Nfix] [-u] [-w] [-d] [-s] [-e] [-g] [-p] [-t] [-q] [--update]
 
 an azule "clone" written in python3.
 
@@ -51,6 +51,7 @@ options:
   -l plist              a plist to merge with the existing Info.plist
   -r url [url ...]      url schemes to add
   -f files [files ...]  tweak files to inject into the ipa
+  -Nfix                 do not automatically fix non-essential dependencies
   -u                    remove UISupportedDevices
   -w                    remove watch app
   -d                    enable files access
@@ -80,7 +81,7 @@ options:
   <li>
   install <code>pyzule</code>:
 
-  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"</code></pre>
+  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/yodaluca23/pyzule/main/install-pyzule.sh)"</code></pre>
   </li>
 </ol>
 </details>
@@ -98,7 +99,7 @@ options:
   <li>
   install <code>pyzule</code>:
 
-  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"</code></pre>
+  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/yodaluca23/pyzule/main/install-pyzule.sh)"</code></pre>
   </li>
 </ol>
 </details>
@@ -113,7 +114,7 @@ options:
   <li>
   install <code>pyzule</code>:
 
-  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/asdfzxcvbn/pyzule/main/install-pyzule.sh)"</code></pre>
+  <pre lang="bash"><code>bash -c "$(curl https://raw.githubusercontent.com/yodaluca23/pyzule/main/install-pyzule.sh)"</code></pre>
   </li>
 </ol>
 </details>
